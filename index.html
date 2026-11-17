@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SBPS | Software Bug Prediction System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Login screen -->
+  <main id="loginScreen" class="login-screen">
+    <section class="login-visual">
+      <div class="visual-top">
+        <div class="brand brand-light"><span class="brand-mark">S</span><span>SBPS</span></div>
+        <span class="secure-pill"><i></i> Intelligent quality monitoring</span>
+      </div>
+      <div class="visual-copy">
+        <span class="eyebrow">SOFTWARE QUALITY • SMARTER</span>
+        <h1>Find risks before<br><span>they become bugs.</span></h1>
+        <p>Make more confident software quality decisions with an intelligent bug-risk prediction workspace.</p>
+        <div class="visual-stats">
+          <div><strong>01</strong><span>Analyze metrics</span></div>
+          <div><strong>02</strong><span>Predict risk</span></div>
+          <div><strong>03</strong><span>Improve quality</span></div>
+        </div>
+      </div>
+      <div class="visual-orbit orbit-one"></div><div class="visual-orbit orbit-two"></div>
+      <div class="visual-footer">SOFTWARE BUG PREDICTION SYSTEM <span>© 2026</span></div>
+    </section>
+
+    <section class="login-panel">
+      <div class="login-card">
+        <div class="brand brand-dark"><span class="brand-mark">S</span><span>SBPS</span></div>
+        <div class="login-heading">
+          <span class="eyebrow blue">ADMINISTRATOR ACCESS</span>
+          <h2>Welcome back</h2>
+          <p>Sign in to access your prediction dashboard.</p>
+        </div>
+        <form id="loginForm">
+          <label for="adminEmail">Admin email</label>
+          <div class="input-wrap"><span class="input-icon">✉</span><input id="adminEmail" type="email" placeholder="admin@sbps.com" autocomplete="username" required></div>
+          <label for="adminPassword">Password</label>
+          <div class="input-wrap"><span class="input-icon">▣</span><input id="adminPassword" type="password" placeholder="Enter your password" autocomplete="current-password" required><button class="password-toggle" type="button" id="togglePassword" aria-label="Show password">Show</button></div>
+          <div class="login-options"><label class="remember"><input type="checkbox" id="rememberMe"> <span>Remember me</span></label><span class="admin-tag">ADMIN PORTAL</span></div>
+          <button class="primary-btn login-btn" type="submit">Sign in to dashboard <span>→</span></button>
+          <p id="loginError" class="form-error" role="alert"></p>
+        </form>
+        <div class="login-hint"><span class="hint-icon">i</span><span>Demo access: <b>admin@sbps.com</b> / <b>Admin123</b></span></div>
+        <p class="login-bottom">Secure workspace for software quality analysis</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Dashboard app -->
+  <div id="appScreen" class="app-shell hidden">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand"><div class="brand brand-light"><span class="brand-mark">S</span><span>SBPS</span></div><button class="sidebar-close" id="closeSidebar" aria-label="Close menu">×</button></div>
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="nav-menu">
+        <button class="nav-link active" data-view="overview"><span class="nav-icon">▦</span> Overview</button>
+        <button class="nav-link" data-view="prediction"><span class="nav-icon">⌁</span> Bug Prediction <span class="nav-new">AI</span></button>
+        <button class="nav-link" data-view="history"><span class="nav-icon">◷</span> Prediction History</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card"><div class="help-icon">✦</div><b>Quality starts here</b><p>Analyze your software metrics and identify potential risks early.</p></div>
+        <button class="nav-link logout-link" id="logoutBtn"><span class="nav-icon">↪</span> Sign out</button>
+        <div class="sidebar-user"><div class="avatar">A</div><div><b>Administrator</b><small>System Admin</small></div><span class="online-dot"></span></div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <div class="topbar-left"><button id="menuToggle" class="menu-toggle" aria-label="Open menu">☰</button><div><span class="top-eyebrow">SOFTWARE QUALITY WORKSPACE</span><div class="breadcrumb">Workspace <span>/</span> <b id="breadcrumbTitle">Overview</b></div></div></div>
+        <div class="topbar-right"><div class="system-status"><i></i> System online</div><div class="top-avatar">A</div></div>
+      </header>
+
+      <section id="overviewView" class="page-view">
+        <div class="welcome-row"><div><span class="eyebrow blue">TUESDAY • YOUR WORKSPACE</span><h1>Good to see you, Admin <span class="wave">✦</span></h1><p>Here’s an overview of your software quality prediction activity.</p></div><button class="primary-btn" data-go="prediction">＋ New prediction</button></div>
+        <div class="stat-grid">
+          <article class="stat-card"><div class="stat-top"><span>Total predictions</span><span class="stat-icon blue-bg">⌁</span></div><strong id="totalPredictions">0</strong><small><span class="trend">↗</span> Analyses performed</small></article>
+          <article class="stat-card"><div class="stat-top"><span>High-risk results</span><span class="stat-icon red-bg">!</span></div><strong id="highRiskCount">0</strong><small>Require closer review</small></article>
+          <article class="stat-card"><div class="stat-top"><span>Low-risk results</span><span class="stat-icon green-bg">✓</span></div><strong id="lowRiskCount">0</strong><small>Lower predicted risk</small></article>
+          <article class="stat-card"><div class="stat-top"><span>Average risk score</span><span class="stat-icon purple-bg">◉</span></div><strong id="averageRisk">—<small>%</small></strong><small>Across saved predictions</small></article>
+        </div>
+        <div class="content-grid">
+          <article class="panel quick-panel"><div class="panel-heading"><div><h3>Start a new analysis</h3><p>Enter software metrics to estimate bug risk.</p></div><span class="panel-symbol">⌁</span></div><div class="quick-steps"><div><span>01</span><b>Enter metrics</b><small>Code and project details</small></div><div><span>02</span><b>Run prediction</b><small>Review estimated risk</small></div><div><span>03</span><b>Take action</b><small>Use recommendations</small></div></div><button class="outline-btn" data-go="prediction">Open prediction form <span>→</span></button></article>
+          <article class="panel insight-panel"><div class="panel-heading"><div><h3>Risk distribution</h3><p>Based on your saved predictions</p></div></div><div class="donut-wrap"><div class="donut" id="riskDonut"><div><strong id="donutTotal">0</strong><small>total</small></div></div><div class="legend"><div><i class="legend-dot high"></i><span>High risk</span><b id="legendHigh">0</b></div><div><i class="legend-dot medium"></i><span>Medium risk</span><b id="legendMedium">0</b></div><div><i class="legend-dot low"></i><span>Low risk</span><b id="legendLow">0</b></div></div></div></article>
+        </div>
+        <article class="panel recent-panel"><div class="panel-heading"><div><h3>Recent predictions</h3><p>Your latest software risk analyses</p></div><button class="text-btn" data-go="history">View all →</button></div><div id="recentTable"></div></article>
+        <p class="disclaimer">Note: This interface currently uses a demo JavaScript scoring method. Connect your trained machine-learning model to generate model-based predictions.</p>
+      </section>
+
+      <section id="predictionView" class="page-view hidden">
+        <div class="page-heading"><div><span class="eyebrow blue">ANALYSIS WORKSPACE</span><h1>Software Bug Prediction</h1><p>Provide project metrics to estimate the likelihood of software defects.</p></div><span class="step-badge"><i></i> Prediction engine ready</span></div>
+        <div class="prediction-layout">
+          <form id="predictionForm" class="panel prediction-form">
+            <div class="form-section-title"><span class="section-number">01</span><div><h3>Project information</h3><p>Tell us about the software module.</p></div></div>
+            <div class="field-group"><label for="projectName">Project / Module name <span>*</span></label><input id="projectName" type="text" placeholder="e.g. User Authentication Module" maxlength="60" required></div>
+            <div class="form-section-title metrics-title"><span class="section-number">02</span><div><h3>Software metrics</h3><p>Enter the available code and development metrics.</p></div></div>
+            <div class="fields-grid">
+              <div class="field-group"><label for="loc">Lines of Code (LOC) <span>*</span></label><input id="loc" type="number" min="1" max="1000000" placeholder="e.g. 2500" required><small>Total lines in the module</small></div>
+              <div class="field-group"><label for="complexity">Code complexity <span>*</span></label><input id="complexity" type="number" min="1" max="1000" placeholder="e.g. 15" required><small>Complexity score / cyclomatic</small></div>
+              <div class="field-group"><label for="churn">Code changes (churn) <span>*</span></label><input id="churn" type="number" min="0" max="100000" placeholder="e.g. 120" required><small>Lines added or modified</small></div>
+              <div class="field-group"><label for="previousBugs">Previous bugs <span>*</span></label><input id="previousBugs" type="number" min="0" max="10000" placeholder="e.g. 4" required><small>Previously reported defects</small></div>
+              <div class="field-group"><label for="coverage">Test coverage (%) <span>*</span></label><input id="coverage" type="number" min="0" max="100" placeholder="e.g. 75" required><small>Percentage covered by tests</small></div>
+              <div class="field-group"><label for="experience">Developer experience (years) <span>*</span></label><input id="experience" type="number" min="0" max="60" step="0.5" placeholder="e.g. 3" required><small>Relevant development experience</small></div>
+            </div>
+            <div class="form-actions"><button type="reset" class="reset-btn">Clear form</button><button type="submit" class="primary-btn">Analyze & predict <span>→</span></button></div>
+          </form>
+          <aside class="panel info-panel"><div class="info-icon">✦</div><h3>How prediction works</h3><p>The demo engine evaluates project metrics to estimate a risk level.</p><div class="risk-guide"><div><i class="legend-dot low"></i><span><b>Low risk</b><small>Good quality indicators</small></span></div><div><i class="legend-dot medium"></i><span><b>Medium risk</b><small>Some areas need attention</small></span></div><div><i class="legend-dot high"></i><span><b>High risk</b><small>Review and test carefully</small></span></div></div><div class="tip-box"><b>Tip for better quality</b><p>Higher test coverage, lower complexity and fewer previous bugs can help reduce software risk.</p></div><div class="privacy-note">⌑ &nbsp; Your predictions are saved in this browser.</div></aside>
+        </div>
+        <div id="resultPanel" class="panel result-panel hidden" aria-live="polite"></div>
+      </section>
+
+      <section id="historyView" class="page-view hidden">
+        <div class="page-heading"><div><span class="eyebrow blue">YOUR ANALYSIS RECORDS</span><h1>Prediction History</h1><p>Review previous analyses and their estimated risk levels.</p></div><button class="outline-btn" id="exportBtn">↓ Export CSV</button></div>
+        <article class="panel history-panel"><div class="history-toolbar"><div class="search-box"><span>⌕</span><input id="historySearch" type="search" placeholder="Search project name..."></div><select id="riskFilter"><option value="all">All risk levels</option><option value="High">High risk</option><option value="Medium">Medium risk</option><option value="Low">Low risk</option></select></div><div id="historyTable"></div></article>
+      </section>
+      <footer class="app-footer"><span>© 2026 SBPS · Software Bug Prediction System</span><span>Built for smarter software quality</span></footer>
+    </main>
+  </div>
+  <div id="toast" class="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
